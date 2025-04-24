@@ -15,7 +15,7 @@
     --popover: 215 28% 17%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 187 98% 38%;
+    --primary: 187 98% 38%; /* Turquoise */
     --primary-foreground: 210 40% 98%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -24,7 +24,7 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 187 98% 38%;
+    --accent: 187 98% 38%; /* Turquoise */
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,18 +32,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 187 98% 38%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 215 28% 12%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 187 98% 38%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 217.2 32.6% 17.5%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-ring: 187 98% 38%;
+    --ring: 187 98% 38%; /* Turquoise */
   }
 }
 
@@ -58,9 +47,24 @@
 
   .glass-effect {
     @apply bg-opacity-20 backdrop-blur-sm bg-cybernash-dark border border-cybernash-turquoise/30;
+    transition: all 0.3s ease;
   }
   
   .text-gradient {
     @apply bg-gradient-to-r from-cybernash-turquoise to-blue-300 bg-clip-text text-transparent;
   }
+
+  /* New glassmorphism and glow utilities */
+  .glassmorphism {
+    @apply backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl transition-all duration-300 hover:bg-white/15;
+  }
+
+  .glow-effect {
+    @apply transition-all duration-300 hover:shadow-[0_0_15px_rgba(51,195,240,0.6)] hover:scale-[1.02];
+  }
+
+  .interactive-card {
+    @apply glassmorphism glow-effect transform hover:rotate-1 hover:translate-y-[-5px];
+  }
 }
+

@@ -1,25 +1,34 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
-	darkMode: ["class"],
-	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
-	],
-	prefix: "",
-	theme: {
-		container: {
-			center: true,
-			padding: '2rem',
-			screens: {
-				'2xl': '1400px'
-			}
-		},
-		extend: {
-			colors: {
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
+  prefix: "",
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      colors: {
+        // Updated color palette with turquoise-green focus
+        cybernash: {
+          turquoise: '#33C3F0',  // Sky Blue
+          dark: '#1A1F2C',       // Deep Dark Blue
+          darkGray: '#222222',   // Dark Gray
+          mediumGray: '#8A898C', // Medium Gray
+          lightGray: '#F1F1F1',  // Light Gray
+          accent: '#1EAEDB',     // Bright Blue
+          green: '#2ECC71'       // Soft Green
+        },
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -64,14 +73,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Custom CyberNash colors
-				cybernash: {
-					turquoise: '#33C3F0',
-					dark: '#1A1F2C',
-					darkGray: '#222222',
-					mediumGray: '#8A898C',
-					lightGray: '#F1F1F1',
-				}
+			
 			},
+      // Add some new animation and transition effects
+      
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -101,15 +106,35 @@ export default {
 				'fade-up': {
 					'0%': { opacity: '0', transform: 'translateY(20px)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' }
-				}
-			},
-			animation: {
+				},
+        'glow': {
+          '0%, 100%': { 
+            boxShadow: '0 0 5px rgba(51, 195, 240, 0.5)' 
+          },
+          '50%': { 
+            boxShadow: '0 0 20px rgba(51, 195, 240, 0.8)' 
+          }
+        },
+        'glassmorphism': {
+          '0%': { 
+            transform: 'scale(0.95)', 
+            opacity: '0.8' 
+          },
+          '100%': { 
+            transform: 'scale(1)', 
+            opacity: '1' 
+          }
+        }
+      },
+      animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out',
-				'fade-up': 'fade-up 0.7s ease-out'
-			}
-		}
-	},
-	plugins: [require("tailwindcss-animate")],
+				'fade-up': 'fade-up 0.7s ease-out',
+        'glow': 'glow 2s ease-in-out infinite',
+        'glassmorphism': 'glassmorphism 0.3s ease-out'
+      }
+    }
+  },
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;
